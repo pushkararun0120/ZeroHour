@@ -136,6 +136,8 @@ The application should continue to use the existing installed dependencies unles
 
 **Model access warning:** Google's current Gemini model documentation states that Gemini 2.5 models are not deprecated, but access is being limited to users who have actively used them in the past; new projects are directed toward newer Flash models. Verify the actual model access for the project's API key early. If it is unavailable, make a deliberate, documented model migration and re-test schema output, image/audio input and fallback behavior. Do not silently substitute a model. See the official [Gemini model list](https://ai.google.dev/gemini-api/docs/models) and [deprecation page](https://ai.google.dev/gemini-api/docs/deprecations).
 
+**Model change record (24 Oct 2026):** `gemini-2.5-flash` returned a 404 for the project's API key. A manual test of text and image input with structured JSON output passed on `gemini-3-flash-preview`, so it is now the primary model. `gemini-3.5-flash` and `gemini-3.8-flash` are fallbacks. The model IDs live in `src/lib/triage-schema.ts`.
+
 ### 3.2 Primary routes
 
 - `/`: Citizen Emergency App.

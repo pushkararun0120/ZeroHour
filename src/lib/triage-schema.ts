@@ -2,10 +2,16 @@ import { Type, type Schema } from "@google/genai";
 
 /**
  * ZeroHour model configuration.
- * Keep the model ID in one place. Verify model access with the deployed Google
- * project before production deployment; do not silently change models.
+ * Keep model IDs in one place. gemini-2.5-flash returned 404 ("no longer
+ * available to new users") for our API key on 24 Oct 2026, so the primary
+ * model was changed after a manual test. The fallbacks are tried in order
+ * when the primary returns 503 or 404.
  */
-export const ZEROHOUR_MODEL_ID = "gemini-2.5-flash" as const;
+export const ZEROHOUR_MODEL_ID = "gemini-3-flash-preview" as const;
+export const ZEROHOUR_FALLBACK_MODEL_IDS = [
+  "gemini-3.5-flash",
+  "gemini-3.8-flash",
+] as const;
 
 export type LanguageCode = "ta-IN" | "hi-IN" | "te-IN" | "ml-IN" | "en-IN";
 
