@@ -1,0 +1,90 @@
+[
+  {
+    "id": "rgggh-park-town",
+    "name": "Rajiv Gandhi Govt General Hospital (RGGGH)",
+    "zone": "Central / Park Town",
+    "corridor": "EVR Periyar Salai (Poonamallee High Rd)",
+    "type": "Government",
+    "coordinates": { "lat": 13.0818, "lng": 80.2772 },
+    "emergency_gate": "Tower Block 1 Zero-Delay Trauma Gate (Opp. Central Station)",
+    "capabilities": ["polytrauma", "neuro_trauma", "cath_lab", "toxicology", "vascular_surgery"],
+    "contact_dispatch": "044-25305000"
+  },
+  {
+    "id": "kmc-kilpauk",
+    "name": "Kilpauk Medical College Hospital (KMC)",
+    "zone": "Central / Kilpauk",
+    "corridor": "Poonamallee High Road",
+    "type": "Government",
+    "coordinates": { "lat": 13.0784, "lng": 80.2447 },
+    "emergency_gate": "Main Casualty & Regional Burns Unit Gate, EVR Salai",
+    "capabilities": ["burns_unit", "electrical_injury", "polytrauma", "toxicology"],
+    "contact_dispatch": "044-28364951"
+  },
+  {
+    "id": "apollo-greams",
+    "name": "Apollo Hospitals, Greams Road",
+    "zone": "Central / Thousand Lights",
+    "corridor": "Greams Road / Anna Salai",
+    "type": "Private",
+    "coordinates": { "lat": 13.0632, "lng": 80.2516 },
+    "emergency_gate": "Gate 2 Emergency & Chest Pain Clinic",
+    "capabilities": ["cath_lab", "stroke_thrombolysis", "neuro_trauma", "polytrauma"],
+    "contact_dispatch": "044-28293333"
+  },
+  {
+    "id": "kauvery-alwarpet",
+    "name": "Kauvery Hospital, Alwarpet",
+    "zone": "Central / South",
+    "corridor": "TTK Road / Luz Church Road Junction",
+    "type": "Private",
+    "coordinates": { "lat": 13.0336, "lng": 80.2542 },
+    "emergency_gate": "Emergency Bay, TTK Road Entrance",
+    "capabilities": ["cath_lab", "geriatric_emergency", "stroke_thrombolysis", "neuro_trauma"],
+    "contact_dispatch": "044-40006000"
+  },
+  {
+    "id": "miot-manapakkam",
+    "name": "MIOT International, Manapakkam",
+    "zone": "West / South-West",
+    "corridor": "Mount-Poonamallee Road",
+    "type": "Private",
+    "coordinates": { "lat": 13.0213, "lng": 80.1844 },
+    "emergency_gate": "Level-1 Trauma & Orthopaedic Emergency Gate",
+    "capabilities": ["polytrauma", "orthopaedic_trauma", "vascular_surgery", "neuro_trauma", "cath_lab"],
+    "contact_dispatch": "044-42002288"
+  },
+  {
+    "id": "rela-chromepet",
+    "name": "Dr. Rela Institute & Medical Centre, Chromepet",
+    "zone": "South / Suburbs",
+    "corridor": "GST Road (CLC Works Road)",
+    "type": "Private",
+    "coordinates": { "lat": 12.9565, "lng": 80.1419 },
+    "emergency_gate": "Emergency Triage Bay, GST Service Road Entrance",
+    "capabilities": ["cath_lab", "polytrauma", "neuro_trauma", "critical_care", "toxicology"],
+    "contact_dispatch": "044-66667777"
+  },
+  {
+    "id": "gleneagles-perumbakkam",
+    "name": "Gleneagles HealthCity, Perumbakkam (OMR/Sholinganallur)",
+    "zone": "South / OMR IT Corridor",
+    "corridor": "Cheran Nagar / Sholinganallur-Medavakkam Link Road",
+    "type": "Private",
+    "coordinates": { "lat": 12.8988, "lng": 80.2064 },
+    "emergency_gate": "24x7 Trauma & Neuro Emergency Bay",
+    "capabilities": ["neuro_trauma", "polytrauma", "cath_lab", "stroke_thrombolysis"],
+    "contact_dispatch": "044-44777000"
+  },
+  {
+    "id": "srm-global-kattankulathur",
+    "name": "SRM Medical College Hospital & Research Centre",
+    "zone": "Far South / GST Corridor",
+    "corridor": "GST Road, Potheri / Kattankulathur",
+    "type": "Private / Teaching",
+    "coordinates": { "lat": 12.8231, "lng": 80.0453 },
+    "emergency_gate": "Highway Trauma & Casualty Block, GST Road",
+    "capabilities": ["polytrauma", "neuro_trauma", "cath_lab", "toxicology", "burns_unit"],
+    "contact_dispatch": "044-47432333"
+  }
+]
