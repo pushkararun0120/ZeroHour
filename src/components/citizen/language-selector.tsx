@@ -26,7 +26,7 @@ export function LanguageSelector() {
   return (
     <fieldset className="min-w-0">
       <legend className="mb-1 text-sm font-semibold text-muted">Language</legend>
-      <div className="flex flex-wrap gap-1">
+      <div className="flex flex-wrap gap-2">
         {OPTIONS.map((option) => (
           <label key={option.value} className="relative">
             <input
@@ -40,7 +40,7 @@ export function LanguageSelector() {
             <span
               aria-hidden="true"
               lang={option.lang}
-              className="flex min-h-11 min-w-11 cursor-pointer items-center justify-center rounded-sm border border-line bg-surface px-3 text-base hover:bg-paper peer-checked:border-navy peer-checked:bg-navy peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-[3px] peer-focus-visible:outline-offset-2 peer-focus-visible:outline-navy"
+              className="flex min-h-12 min-w-12 cursor-pointer items-center justify-center rounded border border-line-strong bg-surface px-3 text-base font-medium hover:bg-paper peer-checked:border-primary peer-checked:bg-primary peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-[3px] peer-focus-visible:outline-offset-2 peer-focus-visible:outline-focus"
             >
               {option.label}
             </span>

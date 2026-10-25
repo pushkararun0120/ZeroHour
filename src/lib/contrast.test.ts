@@ -9,7 +9,7 @@ const css = readFileSync(
 );
 
 function token(name: string): string {
-  const match = css.match(new RegExp(`--color-${name}:\\s*(#[0-9a-fA-F]{6})`));
+  const match = css.match(new RegExp(`--zh-${name}:\\s*(#[0-9a-fA-F]{6})`));
   if (!match) throw new Error(`Missing colour token: ${name}`);
   return match[1].toUpperCase();
 }
@@ -34,38 +34,55 @@ describe("contrastRatio", () => {
 });
 
 describe("design tokens", () => {
-  it("match the blueprint palette", () => {
+  it("keep the blueprint palette", () => {
     expect(token("paper")).toBe("#F4F4F0");
     expect(token("surface")).toBe("#FFFFFF");
-    expect(token("ink")).toBe("#111827");
-    expect(token("line")).toBe("#D1D5DB");
-    expect(token("crimson")).toBe("#B91C1C");
-    expect(token("amber")).toBe("#B45309");
+    expect(token("text")).toBe("#111827");
+    expect(token("border")).toBe("#D1D5DB");
+    expect(token("critical")).toBe("#B91C1C");
+    expect(token("urgent")).toBe("#B45309");
     expect(token("navy")).toBe("#1E3A8A");
   });
 
-  const pairs: [string, string][] = [
-    ["ink", "paper"],
-    ["ink", "surface"],
-    ["muted", "paper"],
-    ["muted", "surface"],
-    ["surface", "crimson"],
-    ["surface", "amber"],
-    ["surface", "navy"],
-    ["surface", "ok"],
-    ["amber", "surface"],
-    ["crimson", "surface"],
+  it("use the Calm Clinical primary colour", () => {
+    expect(token("primary")).toBe("#315C5D");
+  });
+
+  const textPairs: [string, string][] = [
+    ["text", "paper"],
+    ["text", "surface"],
+    ["text-secondary", "paper"],
+    ["text-secondary", "surface"],
+    ["text-secondary", "primary-soft"],
+    ["surface", "primary"],
+    ["surface", "primary-hover"],
+    ["primary", "surface"],
+    ["primary", "primary-soft"],
+    ["surface", "critical"],
+    ["surface", "urgent"],
+    ["critical-text", "critical-bg"],
+    ["urgent-text", "urgent-bg"],
+    ["info-text", "info-bg"],
     ["navy", "surface"],
-    ["ok", "surface"],
-    ["ink", "critical-tint"],
-    ["ink", "warning-tint"],
-    ["ink", "info-tint"],
-    ["ink", "ok-tint"],
-    ["navy", "info-tint"],
+    ["navy", "info-bg"],
+    ["success", "surface"],
+    ["success", "success-bg"],
+    ["neutral-text", "neutral-bg"],
+    ["disabled-text", "disabled-bg"],
+    ["text", "primary-soft"],
+    ["text", "critical-bg"],
+    ["text", "urgent-bg"],
+    ["text", "info-bg"],
+    ["text", "success-bg"],
+    ["text", "neutral-bg"],
   ];
 
-  it.each(pairs)("%s text on %s is at least 4.5:1", (foreground, background) => {
+  it.each(textPairs)("%s text on %s is at least 4.5:1", (foreground, background) => {
     expect(contrastRatio(token(foreground), token(background))).toBeGreaterThanOrEqual(4.5);
+  });
+
+  it.each([["surface"], ["paper"]])("the focus colour is at least 3:1 on %s", (background) => {
+    expect(contrastRatio(token("focus"), token(background))).toBeGreaterThanOrEqual(3);
   });
 });
 

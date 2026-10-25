@@ -20,12 +20,14 @@ export function CitizenApp() {
   }`;
 
   return (
-    <div className="mx-auto min-h-dvh w-full md:grid md:max-w-5xl md:grid-cols-[13rem_minmax(0,1fr)] md:gap-x-8 md:px-6">
+    <div className="min-h-dvh md:grid md:grid-cols-[16rem_minmax(0,1fr)] lg:grid-cols-[18rem_minmax(0,1fr)]">
       <div className="min-w-0 md:col-start-2 md:row-start-1">
-        <header className="px-4 pt-4 md:px-0">
-          <h1 className="font-serif text-3xl font-semibold">ZeroHour</h1>
-          <p className="mt-1 text-muted">Research prototype. In a real emergency, call 108.</p>
-          <div className="mt-3 pb-4">
+        <header className="border-b border-line bg-surface">
+          <div className="mx-auto flex w-full max-w-6xl flex-wrap items-end justify-between gap-x-8 gap-y-3 px-4 pb-4 pt-[max(1rem,env(safe-area-inset-top))] md:px-8 md:py-5">
+            <div>
+              <h1 className="text-xl font-semibold md:text-2xl">ZeroHour</h1>
+              <p className="text-muted">Research prototype. In a real emergency, call 108.</p>
+            </div>
             <LanguageSelector />
           </div>
         </header>
@@ -34,7 +36,7 @@ export function CitizenApp() {
 
         <main
           id="main"
-          className="px-4 pb-[calc(11rem+env(safe-area-inset-bottom))] pt-4 md:px-0 md:pb-12"
+          className="mx-auto w-full max-w-6xl px-4 pb-[calc(14rem+env(safe-area-inset-bottom))] pt-6 md:px-8 md:pb-16 md:pt-8"
         >
           <CapturePanel active={tab === "capture"} onIncidentStarted={() => setTab("first-aid")} />
           <PlaceholderPanel
@@ -60,7 +62,7 @@ export function CitizenApp() {
         </main>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-40 flex flex-col border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] md:sticky md:top-4 md:z-auto md:col-start-1 md:row-start-1 md:flex-col-reverse md:gap-4 md:self-start md:border-0 md:bg-transparent md:pb-0">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] md:sticky md:inset-x-auto md:bottom-auto md:top-0 md:z-auto md:col-start-1 md:row-start-1 md:flex md:h-dvh md:flex-col md:gap-4 md:self-start md:overflow-y-auto md:border-r md:border-t-0 md:p-4">
         <AutoPilotBar current={tab} onNavigate={setTab} />
         <TabNav current={tab} onSelect={setTab} />
       </div>

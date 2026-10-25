@@ -11,7 +11,7 @@ interface PlaceholderPanelProps {
 export function PlaceholderPanel({ id, active, description }: PlaceholderPanelProps) {
   return (
     <TabPanel id={id} active={active}>
-      <p className="panel mt-4">{description}</p>
+      <p className="note mt-4">{description}</p>
     </TabPanel>
   );
 }

@@ -1,54 +1,129 @@
 @import "tailwindcss";
 
-@theme {
-  --color-paper: #F4F4F0;
-  --color-surface: #FFFFFF;
-  --color-ink: #111827;
-  --color-muted: #4B5563;
-  --color-line: #D1D5DB;
-  --color-crimson: #B91C1C;
-  --color-amber: #B45309;
-  --color-navy: #1E3A8A;
-  --color-ok: #166534;
-  --color-critical-tint: #FEE2E2;
-  --color-warning-tint: #FEF3C7;
-  --color-info-tint: #DBEAFE;
-  --color-ok-tint: #DCFCE7;
-
-  --font-sans: "Segoe UI", system-ui, -apple-system, "Nirmala UI", "Noto Sans", "Noto Sans Tamil",
-    "Noto Sans Devanagari", "Noto Sans Telugu", "Noto Sans Malayalam", Roboto, "Helvetica Neue",
-    Arial, sans-serif;
-  --font-serif: Georgia, "Times New Roman", "Noto Serif", serif;
-  --font-mono: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace;
-}
-
+/*
+  Calm Clinical design tokens. The reasoning behind each value is in docs/DESIGN_SYSTEM.md.
+  The Tailwind colour names further down map to these tokens, so change a colour here only.
+*/
 :root {
   color-scheme: light;
+
+  /* Foundations */
+  --zh-paper: #F4F4F0;
+  --zh-surface: #FFFFFF;
+  --zh-text: #111827;
+  --zh-text-secondary: #52636A;
+  --zh-border: #D1D5DB;
+  --zh-border-strong: #9CA3AF;
+
+  /* Primary interaction */
+  --zh-primary: #315C5D;
+  --zh-primary-hover: #274C4D;
+  --zh-primary-soft: #E5EFED;
+  --zh-primary-border: #C7D8D3;
+
+  /* Clinical information */
+  --zh-navy: #1E3A8A;
+  --zh-info-bg: #EAF0F8;
+  --zh-info-text: #254C76;
+
+  /* Critical state (RED) */
+  --zh-critical: #B91C1C;
+  --zh-critical-bg: #FEE2E2;
+  --zh-critical-text: #991B1B;
+
+  /* Urgent state (ORANGE) */
+  --zh-urgent: #B45309;
+  --zh-urgent-bg: #FEF3C7;
+  --zh-urgent-text: #78350F;
+
+  /* Success, neutral and disabled */
+  --zh-success: #166534;
+  --zh-success-bg: #DCFCE7;
+  --zh-neutral-bg: #F3F4F6;
+  --zh-neutral-text: #374151;
+  --zh-disabled-bg: #E5E7EB;
+  --zh-disabled-text: #4B5563;
+
+  /* Keyboard focus */
+  --zh-focus: #0F766E;
+
+  /* Fonts. The --font-noto-* variables are created in src/app/layout.tsx. */
+  --zh-font-sans: var(--font-noto-sans), var(--font-noto-tamil), var(--font-noto-devanagari),
+    var(--font-noto-telugu), var(--font-noto-malayalam), "Segoe UI", "Nirmala UI", system-ui,
+    -apple-system, Arial, sans-serif;
+  --zh-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    monospace;
+}
+
+@theme inline {
+  --color-paper: var(--zh-paper);
+  --color-surface: var(--zh-surface);
+  --color-ink: var(--zh-text);
+  --color-muted: var(--zh-text-secondary);
+  --color-line: var(--zh-border);
+  --color-line-strong: var(--zh-border-strong);
+
+  --color-primary: var(--zh-primary);
+  --color-primary-hover: var(--zh-primary-hover);
+  --color-primary-soft: var(--zh-primary-soft);
+  --color-primary-border: var(--zh-primary-border);
+
+  --color-navy: var(--zh-navy);
+  --color-info-bg: var(--zh-info-bg);
+  --color-info-text: var(--zh-info-text);
+
+  --color-critical: var(--zh-critical);
+  --color-critical-bg: var(--zh-critical-bg);
+  --color-critical-text: var(--zh-critical-text);
+
+  --color-urgent: var(--zh-urgent);
+  --color-urgent-bg: var(--zh-urgent-bg);
+  --color-urgent-text: var(--zh-urgent-text);
+
+  --color-success: var(--zh-success);
+  --color-success-bg: var(--zh-success-bg);
+  --color-neutral-bg: var(--zh-neutral-bg);
+  --color-neutral-text: var(--zh-neutral-text);
+  --color-disabled-bg: var(--zh-disabled-bg);
+  --color-disabled-text: var(--zh-disabled-text);
+
+  --color-focus: var(--zh-focus);
+
+  --font-sans: var(--zh-font-sans);
+  --font-mono: var(--zh-font-mono);
 }
 
 @layer base {
   *,
   ::before,
   ::after {
-    border-color: var(--color-line);
+    border-color: var(--zh-border);
   }
 
   html {
     -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Large monitors: scale everything up so the app does not look small. */
+  @media (min-width: 1600px) {
+    html {
+      font-size: 112.5%;
+    }
   }
 
   body {
-    background-color: var(--color-paper);
-    color: var(--color-ink);
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    line-height: 1.6;
+    background-color: var(--zh-paper);
+    color: var(--zh-text);
+    font-family: var(--zh-font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.5;
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
   }
 
   :focus-visible {
-    outline: 3px solid var(--color-navy);
+    outline: 3px solid var(--zh-focus);
     outline-offset: 2px;
   }
 
@@ -75,48 +150,48 @@
     left: 0.5rem;
     top: 0.5rem;
     z-index: 100;
-    background-color: var(--color-ink);
-    color: var(--color-surface);
+    background-color: var(--zh-text);
+    color: var(--zh-surface);
     padding: 0.75rem 1rem;
   }
 
   .panel {
-    @apply border border-line bg-surface p-4 sm:p-6;
+    @apply rounded-md border border-line bg-surface p-4 sm:p-6;
+  }
+
+  .note {
+    @apply rounded-md border border-primary-border bg-primary-soft p-4 sm:p-5;
   }
 
   .panel-title {
-    @apply font-serif text-2xl font-semibold;
+    @apply text-2xl font-semibold leading-snug md:text-3xl;
   }
 
   .btn {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border px-4 py-2 text-base font-semibold hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60;
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded border px-5 py-2 text-lg font-semibold disabled:cursor-not-allowed disabled:border-line disabled:bg-disabled-bg disabled:text-disabled-text;
   }
 
   .btn-primary {
-    @apply border-navy bg-navy text-white;
-  }
-
-  .btn-danger {
-    @apply border-crimson bg-crimson text-white;
+    @apply border-primary bg-primary text-white enabled:hover:bg-primary-hover;
   }
 
   .btn-secondary {
-    @apply border-line bg-surface text-ink hover:bg-paper;
+    @apply border-line-strong bg-surface text-ink enabled:hover:bg-paper;
   }
 
   .badge {
-    @apply inline-flex items-center rounded-sm border px-2 py-0.5 text-sm font-semibold text-ink;
+    @apply inline-flex items-center rounded border px-2 py-0.5 text-sm font-semibold;
   }
 
   .badge-sim {
-    @apply border-amber bg-warning-tint;
+    @apply border-urgent bg-urgent-bg text-urgent-text;
   }
 
   .badge-live {
-    @apply border-ok bg-ok-tint;
+    @apply border-success bg-success-bg text-success;
   }
 
   .badge-neutral {
-    @apply border-line bg-paper;
+    @apply border-line bg-neutral-bg text-neutral-text;
   }
 }

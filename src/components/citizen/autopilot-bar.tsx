@@ -18,11 +18,9 @@ export function AutoPilotBar({ current, onNavigate }: AutoPilotBarProps) {
   return (
     <section
       aria-label="Panic Auto-Pilot"
-      className="border-b border-line bg-paper px-2 py-2 md:border md:bg-surface md:p-3"
+      className="border-b border-line bg-paper px-2 py-2 md:rounded-md md:border md:p-3"
     >
-      <p className="px-1 text-sm font-semibold uppercase tracking-wide text-muted">
-        Panic Auto-Pilot
-      </p>
+      <p className="px-1 text-sm font-semibold text-muted">Panic Auto-Pilot</p>
       {target ? (
         <button
           type="button"
